@@ -62,7 +62,33 @@ class AlunoController {
      */
     async create(req, res) {
             
-        const { nome, curso, ira } = req.query;
+        const { nome, curso, ira } = req.body;
+
+        let erros = [];
+
+        if (!nome || !curso || !ira) {
+            erros.push({ message: 'Preencha todos os campos' });
+        }
+
+        if (typeof nome !== 'string') {
+            erros.push({ message: 'Nome deve ser uma string' });
+        }
+
+        if (typeof curso !== 'string') {
+            erros.push({ message: 'Curso deve ser uma string' });
+        }
+
+        if (typeof ira !== 'number') {
+            erros.push({ message: 'IRA deve ser um número' });
+        }
+
+        if (ira < 0 || ira > 10) {
+            erros.push({ message: 'IRA deve ser um número entre 0 e 10' });
+        }
+
+        if (erros.length > 0) {
+            return res.status(400).json({"errors": erros});
+        }
 
         try {
 
@@ -86,7 +112,34 @@ class AlunoController {
     async update(req, res) {
             
         const { id } = req.params;
-        const { nome, curso, ira } = req.query;
+        
+        const { nome, curso, ira } = req.body;
+
+        let erros = [];
+
+        if (!nome || !curso || !ira) {
+            erros.push({ message: 'Preencha todos os campos' });
+        }
+
+        if (typeof nome !== 'string') {
+            erros.push({ message: 'Nome deve ser uma string' });
+        }
+
+        if (typeof curso !== 'string') {
+            erros.push({ message: 'Curso deve ser uma string' });
+        }
+
+        if (typeof ira !== 'number') {
+            erros.push({ message: 'IRA deve ser um número' });
+        }
+
+        if (ira < 0 || ira > 10) {
+            erros.push({ message: 'IRA deve ser um número entre 0 e 10' });
+        }
+
+        if (erros.length > 0) {
+            return res.status(400).json({"errors": erros});
+        }
 
         try {
 
