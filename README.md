@@ -93,13 +93,58 @@ Em outro terminal, execute os seguintes comandos:
 
 ### Alunos
 
-| Método | Rota | Query Params | Body | Descrição |
+<!-- | Método | Rota | Query Params | Body | Descrição |
 | --- | --- | --- | --- | --- |
 | <p style="color:MediumSeaGreen;">GET</p> | /alunos | - | - | Retorna todos os alunos cadastrados. |
 | <p style="color:MediumSeaGreen;">GET</p> | /alunos/:id | id | - | Retorna o aluno com o id informado. |
 | <p style="color:Orange;">POST</p> | /alunos | - | ``{ nome: string, curso: string, ira: int }`` | Cadastra um novo aluno. |
 | <p style="color:DodgerBlue;">PUT</p> | /alunos/:id | id | ``{ nome: string, curso: string, ira: int }`` | Atualiza os dados do aluno com o id informado. |
-| <p style="color:Tomato;">DELETE</p> | /alunos/:id | id | - | Deleta o aluno com o id informado. |
+| <p style="color:Tomato;">DELETE</p> | /alunos/:id | id | - | Deleta o aluno com o id informado. | -->
 
 
+<table style="border-collapse: collapse; width: 100%;">
+        <tr>
+            <th style="text-align: center; padding: 8px; background-color: #f2f2f2; color:black">Método</th>
+            <th style="text-align: center; padding: 8px; background-color: #f2f2f2; color:black">Rota</th>
+            <th style="text-align: center; padding: 8px; background-color: #f2f2f2; color:black">Query Params</th>
+            <th style="text-align: center; padding: 8px; background-color: #f2f2f2; color:black">Body</th>
+            <th style="text-align: center; padding: 8px; background-color: #f2f2f2; color:black">Descrição</th>
+        </tr>
+        <tr>
+            <td style="text-align: center; padding: 8px; color: MediumSeaGreen;">GET</td>
+            <td style="text-align: center; padding: 8px;">/alunos</td>
+            <td style="text-align: center; padding: 8px;">-</td>
+            <td style="text-align: center; padding: 8px;">-</td>
+            <td style="text-align: center; padding: 8px;">Retorna todos os alunos cadastrados.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; padding: 8px; color: MediumSeaGreen;">GET</td>
+            <td style="text-align: center; padding: 8px;">/alunos/:id</td>
+            <td style="text-align: center; padding: 8px;">id</td>
+            <td style="text-align: center; padding: 8px;">-</td>
+            <td style="text-align: center; padding: 8px;">Retorna o aluno com o id informado.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; padding: 8px; color: Orange;">POST</td>
+            <td style="text-align: center; padding: 8px;">/alunos</td>
+            <td style="text-align: center; padding: 8px;">-</td>
+            <td style="text-align: center; padding: 8px;">{ nome: string, curso: string, ira: int }</td>
+            <td style="text-align: center; padding: 8px;">Cadastra um novo aluno.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; padding: 8px; color: DodgerBlue;">PUT</td>
+            <td style="text-align: center; padding: 8px;">/alunos/:id</td>
+            <td style="text-align: center; padding: 8px;">id</td>
+            <td style="text-align: center; padding: 8px;">{ nome: string, curso: string, ira: int }</td>
+            <td style="text-align: center; padding: 8px;">Atualiza os dados do aluno com o id informado.</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; padding: 8px; color: Tomato;">DELETE</td>
+            <td style="text-align: center; padding: 8px;">/alunos/:id</td>
+            <td style="text-align: center; padding: 8px;">id</td>
+            <td style="text-align: center; padding: 8px;">-</td>
+            <td style="text-align: center; padding: 8px;">Deleta o aluno com o id informado.</td>
+        </tr>
+    </table>
+</body>
 
