@@ -39,11 +39,11 @@ Onde:
 
 ## Como executar o projeto
 
->[!NOTE]
+> **Note**
 >
 > É Importante que as postas ``3000``, ``8082`` e ``27017`` estejam disponíveis para execução do projeto, pois são utilizadas pelo frontend, backend e banco de dados, respectivamente.
 
->[!IMPORTANT]
+> **Warning**
 >
 > Caso o projeto seja executado SEM o Docker, você deve modificar o host do banco de dados no arquivo ``backend/.env`` que por padrão está como ``db`` para ``localhost``.
 
