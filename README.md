@@ -49,7 +49,7 @@ Onde:
 
 ### Com Docker (Recomendado)
 
->[!NOTE]
+> **Note**
 >
 > É necessário ter o Docker instalado na máquina para executar o projeto.
 
@@ -87,7 +87,19 @@ Em outro terminal, execute os seguintes comandos:
 
 ---
 
+## Rotas da aplicação
 
+### URL Base: ``http://localhost:8082/api/v1/``
+
+### Alunos
+
+| Método | Rota | Query Params | Body | Descrição |
+| --- | --- | --- | --- | --- |
+| <p style="color:MediumSeaGreen;">GET</p> | /alunos | - | - | Retorna todos os alunos cadastrados. |
+| <p style="color:MediumSeaGreen;">GET</p> | /alunos/:id | id | - | Retorna o aluno com o id informado. |
+| <p style="color:Orange;">POST</p> | /alunos | - | ``{ nome: string, curso: string, ira: int }`` | Cadastra um novo aluno. |
+| <p style="color:DodgerBlue;">PUT</p> | /alunos/:id | id | ``{ nome: string, curso: string, ira: int }`` | Atualiza os dados do aluno com o id informado. |
+| <p style="color:Tomato;">DELETE</p> | /alunos/:id | id | - | Deleta o aluno com o id informado. |
 
 
 
