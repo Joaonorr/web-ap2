@@ -1,8 +1,20 @@
 # web-ap2
 
+- [Descrição do projeto](#descrição-do-projeto)
+- [Arquitetura do projeto](#arquitetura-do-projeto)
+- [Como executar o projeto](#como-executar-o-projeto)
+  - [Com Docker (Recomendado)](#com-docker-recomendado)
+  - [Com NodeJS](#com-nodejs)
+  - [Com Yarn](#com-yarn)
+- [Rotas da aplicação](#rotas-da-aplicação)
+
+---
+
 ## Descrição do projeto
 
 Projeto desenvolvido para a disciplina de Desenvolvimento Web, com o objetivo de criar um sistema de cadastro de alunos, utilizando a biblioteca ``ReactJS`` para o frontend e o framework ``ExpressJS`` para o backend.
+
+---
 
 ## Arquitetura do projeto
 
