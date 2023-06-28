@@ -4,18 +4,17 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
-
 const Editar = () => {
 
     const [nome, setNome] = useState("")
     const [curso, setCurso] = useState("")
+    const [senha, setSenha] = useState("")
     const [ira, setIra] = useState("0.0")
     const navigate = useNavigate()
 
     let { id } = useParams()
 
-
+ // lê os dados da lista para iniciar os campos para o determinado aluno, se  não der certo, envia erro
     useEffect(
         () => {
             console.log(id)
@@ -25,20 +24,21 @@ const Editar = () => {
                         setNome(res.data.nome)
                         setCurso(res.data.curso)
                         setIra(res.data.ira)
+                        setSenha(res.data.senha)
                     }
                 )
                 .catch(error => console.log(error))
         }
         ,
-        [id]
+        []
     )
 
-
+// função que atualiza os dados do aluno de acordo com os campos de entrada de dados
     const handleSubmit = (e) => {
         e.preventDefault();
         const updatedAluno =
         {
-            nome, curso, ira
+            nome, senha, ira, curso
         }
         axios.put("http://localhost:8082/api/v1/aluno/"+ id, updatedAluno)
             .then(
@@ -52,6 +52,7 @@ const Editar = () => {
 
     return (
         <>
+        {/* campos para editar os dados de aluno */}
             <Typography variant="h5" fontWeight="bold">
                 Editar Aluno
             </Typography>
@@ -74,6 +75,23 @@ const Editar = () => {
                     onChange={(event) => { setNome(event.target.value) }}
                     value={nome}
                 />
+
+                <TextField
+                    required
+                    fullWidth
+                    margin = "normal"
+                    
+                    label = "Senha"
+                    id = "password"
+                    name = "password"
+                    type = "password"
+                    onChange={
+                        (event)=>{
+                            setSenha(event.target.value)
+                        }
+                    }
+                    value = {senha}
+                    />
 
                 <TextField
 

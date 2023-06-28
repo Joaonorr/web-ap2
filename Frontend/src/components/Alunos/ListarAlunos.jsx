@@ -12,6 +12,7 @@ const ListarAlunos = () => {
 
     const [reload, setReload] = useState(false);
 
+    // lê os alunos da API
     useEffect(() => {
         axios.get("http://localhost:8082/api/v1/aluno/")
             .then((response) => {
@@ -21,6 +22,7 @@ const ListarAlunos = () => {
 
     }, [reload]);
 
+    // calcula a média na medida que o vetor de alunos é alterado
     useEffect(() => {
         let somaIra = 0.0;
         let contador = 0;
@@ -38,7 +40,9 @@ const ListarAlunos = () => {
     }, [alunos]);
 
 
-    function deleteProfessor(id) {
+    // função para excluir aluno
+
+    function deleteAluno(id) {
         if (window.confirm("Deseja Excluir?")){
             axios.delete("http://localhost:8082/api/v1/aluno/" + id)
             .then(()=> alert(`Aluno ${id} excluído!`))
@@ -47,6 +51,7 @@ const ListarAlunos = () => {
     }
 
     return (
+        // campos da tabela com os valores presentes no banco de dados, com a opção de editar os valores ou apagar o determinado valor
         <>
             <Typography variant="h5" fontWeight="bold">
                 Alunos
@@ -88,7 +93,7 @@ const ListarAlunos = () => {
                                         </TableCell>
                                         <TableCell>
                                             <Box>
-                                                <IconButton aria-label="delete" color="error" onClick={()=>deleteProfessor(professor.id)}>
+                                                <IconButton aria-label="delete" color="error" onClick={()=>deleteAluno(aluno.id)}>
                                                     <DeleteIcon />
                                                 </IconButton>
                                             </Box>

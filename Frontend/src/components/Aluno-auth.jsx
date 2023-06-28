@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Typography, Box, Button, TextField } from '@mui/material'
 
+// função contém os campos de nome e senha para autenticação
 const Signin = () =>{
     return(
         <div>
@@ -25,10 +26,9 @@ const Signin = () =>{
                     autoFocus
                     margin = "normal"
                     
-                    label = "Endereço de e-mail"
-                    id = "email"
-                    name = "email"
-                    type = "email"
+                    label = "Nome"
+                    id = "nome"
+                    name = "nome"
                     />
 
                     <TextField

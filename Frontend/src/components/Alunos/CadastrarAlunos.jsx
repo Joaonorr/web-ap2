@@ -3,7 +3,7 @@ import axios from "axios"
 import { useState } from "react"
 
 const Cadastrar = () => {
-
+// variáveis de estado
     const [senha, setSenha] = useState("")
     const [nome, setNome] = useState("")
     const [ira, setIra] = useState(0.0)
@@ -11,6 +11,7 @@ const Cadastrar = () => {
 
     const Aluno = {nome, senha, ira, curso}
 
+    // ao apertar o botão de submissão, insere o novo aluno e envia para o console seus dados
    async function handleSubmit(event){
         event.preventDefault()
         console.log(nome)
@@ -23,6 +24,7 @@ const Cadastrar = () => {
 
     return(
         <>
+        {/* criação de campos para receber as informações e o botão de envio */}
         <Typography variant="h5" fontWeight="bold" sx = {{ mt: 10}}>
         Cadastrar Aluno
         </Typography>

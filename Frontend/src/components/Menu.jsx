@@ -2,7 +2,8 @@ import { AppBar, Container, Toolbar, Typography, Box, Button } from "@mui/materi
 import { Link } from "react-router-dom"
 
 const MyMenu = () => {
-   
+   // Menu de navegação, com botões para acada operação:
+   // cadastrar, autenticar, listar alunos (o editar e apagar está incluso em listar)
     return (
         <>
         <AppBar>
@@ -57,6 +58,15 @@ const MyMenu = () => {
                                 Listar Alunos Aprovados
                 </Button>
 
+                        <Button sx = {{
+                            color:"white",
+                            my: 2
+                        }}
+                        component = {Link}
+                        to = {"autenticarAluno"}
+                        >
+                            Sign In
+                        </Button>
                         </Box>
 
                 </Toolbar>
