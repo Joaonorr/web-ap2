@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import AlunoRouter from './Routes/AlunoRouter.js'
 import DbContext from './config/mongooseConnection.js';
 import cors from 'cors';
+import InitialDataAlunos from './config/InitialDataAlunos.js';
 
 
 
@@ -20,6 +21,9 @@ app.use(express.json());
 
 // configurando o express para usar o cors
 app.use(cors());
+
+// adicionando alunos iniciais
+InitialDataAlunos();
 
 app.use('/api/v1', AlunoRouter);
 
