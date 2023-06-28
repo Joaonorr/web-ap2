@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios";
 
-const ListarAlunos = () => {
+const ListarAlunosAprovados = () => {
     const [alunos, setAlunos] = useState([]);
 
     const [media, setMedia] = useState(0);
@@ -58,35 +58,33 @@ const ListarAlunos = () => {
                             {alunos.map((aluno) => {                                
                                 let backgroundColor = "";
 
-                                if (aluno.ira < media) {
-                                    backgroundColor = 'error.main';
+                                if (aluno.ira > media) {
+                                    return (
+                                        <TableRow
+                                            key={aluno.id}
+                                            sx={{ backgroundColor, border: 0 } }
+                                        >
+                                            <TableCell>{aluno.nome}</TableCell>
+                                            <TableCell>{aluno.curso}</TableCell>
+                                            <TableCell>{aluno.ira}</TableCell>
+                                            <TableCell>
+                                                <Box>
+                                                    <IconButton aria-label="edit" color="primary">
+                                                        <EditIcon />
+                                                    </IconButton>
+                                                </Box>
+                                            </TableCell>
+                                            <TableCell>
+                                                <Box>
+                                                    <IconButton aria-label="delete" color="error">
+                                                        <DeleteIcon />
+                                                    </IconButton>
+                                                </Box>
+                                            </TableCell>
+                                        </TableRow>
+    
+                                    )
                                 }
-
-                                return (
-                                    <TableRow
-                                        key={aluno.id}
-                                        sx={{ backgroundColor, border: 0 } }
-                                    >
-                                        <TableCell>{aluno.nome}</TableCell>
-                                        <TableCell>{aluno.curso}</TableCell>
-                                        <TableCell>{aluno.ira}</TableCell>
-                                        <TableCell>
-                                            <Box>
-                                                <IconButton aria-label="edit" color="primary">
-                                                    <EditIcon />
-                                                </IconButton>
-                                            </Box>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Box>
-                                                <IconButton aria-label="delete" color="error">
-                                                    <DeleteIcon />
-                                                </IconButton>
-                                            </Box>
-                                        </TableCell>
-                                    </TableRow>
-
-                                )
                             })
                             }
                             <Typography variant="h4" fontWeight="bold">
@@ -103,4 +101,4 @@ const ListarAlunos = () => {
 
 }
 
-export default ListarAlunos;
+export default ListarAlunosAprovados;

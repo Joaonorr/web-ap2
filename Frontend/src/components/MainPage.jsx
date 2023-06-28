@@ -4,6 +4,7 @@ import { Container } from "@mui/material"
 import ListarAlunos from "./Alunos/ListarAlunos"
 import Cadastrar from "./Alunos/CadastrarAlunos"
 import Editar from "./Alunos/EditarAluno"
+import ListarAlunosAprovados from "./Alunos/ListarAlunosAprovados"
 
 const MainPage = ( ) => {
     return (
@@ -14,6 +15,7 @@ const MainPage = ( ) => {
         <Route path = "cadastrarAluno" element = {<Cadastrar/>} />
         <Route path = "editarAluno" element = {<Editar/>} />
         <Route path = "listarAluno" element = {<ListarAlunos/>} />
+        <Route path = "listarAlunoAprovado" element = {<ListarAlunosAprovados/>} />
         </Routes> 
         </Container>
         </BrowserRouter>

@@ -47,6 +47,15 @@ const MyMenu = () => {
                         >
                                 Listar Alunos
                 </Button>
+                <Button sx ={{
+                            color: "white",
+                            my: 2,
+                        }}
+                    component = {Link}
+                    to = {"listarAlunoAprovado"}
+                        >
+                                Listar Alunos Aprovados
+                </Button>
 
                         </Box>
 
