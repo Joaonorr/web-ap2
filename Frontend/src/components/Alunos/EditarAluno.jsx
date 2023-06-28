@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react"
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Aluno from "../MyContext";
+
 
 
 const Editar = () => {
