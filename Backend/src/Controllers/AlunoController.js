@@ -1,5 +1,9 @@
 
 import Aluno from "../models/AlunoModel.js";
+import bcrypt from 'bcryptjs';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 class AlunoController {
 
@@ -52,6 +56,43 @@ class AlunoController {
         }
     }
 
+    async getAuthToken(req, res) {
+        
+        const { nome, senha } = req.body;
+
+        if (!nome || !senha) {
+
+            return res.status(400).json({ message: 'Email e senha são necessários' });
+
+        }
+
+        try {
+                
+            const aluno = await Aluno.findOne({ nome });
+
+            if (!aluno) {
+
+                return res.status(404).json({ message: 'User not found' });
+
+            }
+
+            if (aluno.senha === senha) {
+
+                return res.status(200).json({ message: "Acesso autorizado" });
+
+            }
+
+            return res.status(401).json({ message: 'Senha inválida' });
+    
+        }
+        catch (error) {
+                
+            return res.status(500).json({ message: error.message });
+    
+        }
+
+    }
+
     /**
      * Método responsável por criar um novo aluno
      * 
@@ -62,11 +103,11 @@ class AlunoController {
      */
     async create(req, res) {
             
-        const { nome, curso, ira } = req.body;
+        const { nome, senha, curso, ira } = req.body;
 
         let erros = [];
 
-        if (!nome || !curso || !ira) {
+        if (!nome || !curso || !ira || !senha) {
             erros.push({ message: 'Preencha todos os campos' });
         }
 
@@ -82,6 +123,10 @@ class AlunoController {
             erros.push({ message: 'IRA deve ser um número' });
         }
 
+        if (typeof senha !== 'string') {
+            erros.push({ message: 'Senha deve ser uma string' });
+        }
+
         if (ira < 0 || ira > 10) {
             erros.push({ message: 'IRA deve ser um número entre 0 e 10' });
         }
@@ -92,7 +137,7 @@ class AlunoController {
 
         try {
 
-            const aluno = await Aluno.create({ nome, curso, ira });
+            const aluno = Aluno.create({ nome, senha, curso, ira });
 
             return res.json(aluno);
 

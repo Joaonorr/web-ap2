@@ -19,6 +19,10 @@ const Aluno = new Schema({
         type: String,
         required: true,
     },
+    senha: {
+        type: String,
+        required: true,
+    },
     curso: {
         type: String,
         required: true,

@@ -45,4 +45,10 @@ router.put('/aluno/:id', AlunoController.update);
  */
 router.delete('/aluno/:id', AlunoController.delete);
 
+/**
+ * Rota responsável por gerar um token de autenticação
+ * @name authToken
+ */
+router.post("/aluno/auth/", AlunoController.getAuthToken);
+
 export default router;
