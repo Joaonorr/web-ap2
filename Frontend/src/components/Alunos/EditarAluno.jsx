@@ -18,7 +18,7 @@ const Editar = () => {
     useEffect(
         () => {
             console.log(id)
-            axios.get("http://localhost:3001/professores/recuperar/" + id)
+            axios.get("http://localhost:8082/api/v1/aluno/"+ id)
                 .then(
                     (res) => {
                         setNome(res.data.nome)
@@ -39,7 +39,7 @@ const Editar = () => {
         {
             nome, curso, ira
         }
-        axios.put('http://localhost:3001/professores/atualizar/' + id, updatedAluno)
+        axios.put("http://localhost:8082/api/v1/aluno/"+ id, updatedAluno)
             .then(
                 res => {
                     navigate("/listarProfessor")

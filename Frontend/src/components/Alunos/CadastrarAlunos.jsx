@@ -17,7 +17,7 @@ const Cadastrar = () => {
         console.log(senha)
         console.log(ira)
         console.log(curso)
-        await axios.post("http://172.18.103.98:8082/api/v1/aluno/", Aluno)
+        await axios.post("http://localhost:8082/api/v1/aluno/", Aluno)
 
     }
 
