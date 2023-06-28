@@ -13,7 +13,7 @@ const ListarAlunos = () => {
     let contador = 0;
 
     useEffect(() => {
-        axios.get("http://localhost:8082/api/v1/aluno/")
+        axios.get("http://172.18.103.98:8082/api/v1/aluno/")
             .then((response) => setAlunos(response.data))
             .catch((error) => console.log(error));
 
