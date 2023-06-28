@@ -11,6 +11,7 @@ const ListarAlunosAprovados = () => {
 
     const [reload, setReload] = useState(false);
 
+    //lê os alunos disponíveis na API
     useEffect(() => {
         axios.get("http://localhost:8082/api/v1/aluno/")
             .then((response) => {
@@ -20,6 +21,7 @@ const ListarAlunosAprovados = () => {
 
     }, [reload]);
 
+    // calcula a média na medida que os alunos são inseridos no vetor
     useEffect(() => {
         let somaIra = 0.0;
         let contador = 0;
@@ -38,6 +40,7 @@ const ListarAlunosAprovados = () => {
 
 
     return (
+        // mostra a lista de alunos com IRA maiores que a média calculada
         <>
             <Typography variant="h5" fontWeight="bold">
                 Alunos
