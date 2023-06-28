@@ -46,12 +46,12 @@ const ListarAlunos = () => {
                                 let classIra = "";
 
                                 if (aluno.ira < media) {
-                                    classIra = "text-danger";
+                                    classIra = "background-color: red";
                                 }
 
                                 return (
                                     <TableRow
-                                        className={classIra}
+                                        class={classIra}
                                         key={aluno.id}
                                         sx={{ '&:last-child td, &:last-child th, &:': { border: 0 } }}
                                     >
