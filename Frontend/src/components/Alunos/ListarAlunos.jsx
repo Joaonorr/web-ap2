@@ -7,10 +7,16 @@ import axios from "axios";
 const ListarAlunos = () => {
     const [alunos, setAlunos] = useState([]);
 
+    const [media, setMedia] = useState(0);
+
+    let soma = 0;
+    let contador = 0;
+
     useEffect(() => {
         axios.get("http://localhost:8082/api/v1/aluno/")
             .then((response) => setAlunos(response.data))
             .catch((error) => console.log(error));
+
     }
     , []);
 
@@ -33,10 +39,21 @@ const ListarAlunos = () => {
                         </TableHead>
                         <TableBody>
                             {alunos.map((aluno) => {
+
+                                soma += aluno.ira;
+                                contador++;
+                                
+                                let classIra = "";
+
+                                if (aluno.ira < media) {
+                                    classIra = "text-danger";
+                                }
+
                                 return (
                                     <TableRow
+                                        className={classIra}
                                         key={aluno.id}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                        sx={{ '&:last-child td, &:last-child th, &:': { border: 0 } }}
                                     >
                                         <TableCell>{aluno.nome}</TableCell>
                                         <TableCell>{aluno.curso}</TableCell>
@@ -58,7 +75,11 @@ const ListarAlunos = () => {
                                     </TableRow>
 
                                 )
-                            })}
+                            })
+                            }
+                            <Typography variant="h4" fontWeight="bold">
+                                Média: {soma / contador}
+                            </Typography>
                         </TableBody>
                     </Table>
                 </TableContainer>
