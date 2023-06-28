@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ListarAlunos = () => {
     const [alunos, setAlunos] = useState([]);
@@ -36,6 +37,14 @@ const ListarAlunos = () => {
 
     }, [alunos]);
 
+
+    function deleteProfessor(id) {
+        if (window.confirm("Deseja Excluir?")){
+            axios.delete("http://localhost:8082/api/v1/aluno/" + id)
+            .then(()=> alert(`Aluno ${id} excluído!`))
+            .catch((erro)=>erro)
+        }
+    }
 
     return (
         <>
@@ -71,7 +80,7 @@ const ListarAlunos = () => {
                                         <TableCell>{aluno.curso}</TableCell>
                                         <TableCell>{aluno.ira}</TableCell>
                                         <TableCell>
-                                            <Box>
+                                            <Box component = {Link} to = {"../editarAluno/" + aluno.id}>
                                                 <IconButton aria-label="edit" color="primary">
                                                     <EditIcon />
                                                 </IconButton>
@@ -79,7 +88,7 @@ const ListarAlunos = () => {
                                         </TableCell>
                                         <TableCell>
                                             <Box>
-                                                <IconButton aria-label="delete" color="error">
+                                                <IconButton aria-label="delete" color="error" onClick={()=>deleteProfessor(professor.id)}>
                                                     <DeleteIcon />
                                                 </IconButton>
                                             </Box>

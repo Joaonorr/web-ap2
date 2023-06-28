@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react"
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Aluno from "../MyContext";
+
 
 
 const Editar = () => {
@@ -19,7 +19,7 @@ const Editar = () => {
     useEffect(
         () => {
             console.log(id)
-            axios.get("http://10.0.119.215:8082/api/v1/aluno/"+ id)
+            axios.get("http://localhost:8082/api/v1/aluno/"+ id)
                 .then(
                     (res) => {
                         setNome(res.data.nome)
@@ -40,7 +40,7 @@ const Editar = () => {
         {
             nome, curso, ira
         }
-        axios.put("http://10.0.119.215:8082/api/v1/aluno/"+ id, updatedAluno)
+        axios.put("http://localhost:8082/api/v1/aluno/"+ id, updatedAluno)
             .then(
                 (res) => {
                     navigate("/listarProfessor")
